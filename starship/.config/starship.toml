@@ -1,0 +1,78 @@
+# Starship Config - Clean & Fast
+
+# Prompt format
+format = """
+[┌─](bold blue)$directory$git_branch$git_status
+[└─](bold blue)$character"""
+
+# Right side prompt
+right_format = """$cmd_duration$time"""
+
+# Timeout for commands
+command_timeout = 1000
+
+# Directory
+[directory]
+style = "bold cyan"
+truncation_length = 3
+truncate_to_repo = true
+format = "[$path]($style) "
+
+# Git branch
+[git_branch]
+symbol = " "
+style = "bold purple"
+format = "on [$symbol$branch]($style) "
+
+# Git status
+[git_status]
+style = "bold red"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+conflicted = "⚔️ "
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "📦"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+# Character (prompt symbol)
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+# Command duration
+[cmd_duration]
+min_time = 500
+format = "took [$duration](bold yellow) "
+show_milliseconds = false
+
+# Time
+[time]
+disabled = false
+format = '[$time]($style) '
+style = "bold white"
+time_format = "%H:%M"
+
+# Language versions (only show when in project)
+[nodejs]
+format = "via [⬢ $version](bold green) "
+detect_files = ["package.json"]
+
+[python]
+format = 'via [🐍 $version](bold yellow) '
+detect_extensions = ["py"]
+
+[rust]
+format = "via [🦀 $version](bold red) "
+detect_files = ["Cargo.toml"]
+
+# Disable unneeded modules for speed
+[package]
+disabled = true
+
+[docker_context]
+disabled = true

@@ -1,0 +1,10 @@
+# Home setup (laptop + external monitor)
+profile home {
+    output "AOC C27G4 1T0Q8JA001423" enable mode 1920x1080 position 0,0
+    output "Lenovo Group Limited 0x403D Unknown" enable mode 1920x1200 position 1920,0
+}
+
+# Laptop only (no external)
+profile laptop {
+    output "Lenovo Group Limited 0x403D Unknown" enable mode 1920x1200 position 0,0
+}
