@@ -1,15 +1,25 @@
 # Starship Config - Clean & Fast
 
-# Prompt format
+# Global settings (MUST be at top)
 format = """
-[┌─](bold blue)$directory$git_branch$git_status
+[┌─](bold blue)$username[@](bold white)$hostname $directory$git_branch$git_status
 [└─](bold blue)$character"""
 
-# Right side prompt
 right_format = """$cmd_duration$time"""
 
-# Timeout for commands
 command_timeout = 1000
+
+# Username
+[username]
+style_user = "bold green"
+style_root = "bold red"
+format = "[$user]($style)"
+show_always = true
+
+# Hostname
+[hostname]
+ssh_only = false
+format = "[$hostname](bold yellow)"
 
 # Directory
 [directory]
