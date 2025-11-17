@@ -8,3 +8,10 @@ profile home {
 profile laptop {
     output "Lenovo Group Limited 0x403D Unknown" enable mode 1920x1200 position 0,0
 }
+
+# Work setup (laptop + 2 external monitors)
+profile work {
+    output "Lenovo Group Limited 0x403D Unknown" enable mode 1920x1200 position 0,0
+    output "AOC 24B2W1 0x00006794" enable mode 1920x1080 position 1920,0
+    output "AOC 24B2W1 0x00002E43" enable mode 1920x1080 position 3840,0
+}
