@@ -23,6 +23,11 @@ exec kanshi
 # Notifications
 exec mako
 
+# Screen sharing support
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec /usr/lib/xdg-desktop-portal-wlr
+
 # Volume/Brightness OSD
 #exec swayosd-server
 
