@@ -19,5 +19,5 @@ My dotfiles for:
   `/ossssso+/:-        -:/+osssso+-      
   +sso+:-`                 `.-/+oso      
  ++:.                            -/+/    
-.`                                `+\     
+.                                 `     
                                          
