@@ -1,0 +1,12 @@
+#!/bin/bash
+# Launch single fullscreen cmatrix
+kitty --class matrix-lock -o background_opacity=1.0 --start-as=fullscreen -e cmatrix -abs &
+
+# Wait for terminal to spawn
+sleep 0.5
+
+# Lock with transparent overlay
+swaylock -f -c 00000000
+
+# Kill matrix terminal when unlocked
+pkill -f "kitty.*matrix-lock"

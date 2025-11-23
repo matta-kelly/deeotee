@@ -51,3 +51,18 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Initialize Starship
 eval "$(starship init bash)"
+
+# Wallpaper management
+alias prep-walls='prepare-wallpapers'
+
+# Unlock encrypted personal folder
+alias unlock-personal='sudo cryptsetup open ~/Documents/personal.luks personal && sudo mount /dev/mapper/personal ~/Documents/Personal_unencrypted'
+
+# Lock (unmount) personal folder
+alias lock-personal='sudo umount ~/Documents/Personal_unencrypted && sudo cryptsetup close personal'
+
+# Unlock encrypted usb
+alias unlock-usb='sudo mount /dev/sda1 /mnt/usb && sudo gocryptfs /mnt/usb/backup_encrypted /mnt/usb/backup_plain && sudo chown -R mkultra:mkultra /mnt/usb/backup_plain'
+
+# Lock Encrypted usb0
+alias lock-usb='sudo umount /mnt/usb/backup_plain && sudo umount /mnt/usb'

@@ -1,0 +1,5 @@
+#!/bin/bash
+# Lock the screen and hibernate
+swaylock -f -c 000000
+sleep 1
+systemctl hibernate

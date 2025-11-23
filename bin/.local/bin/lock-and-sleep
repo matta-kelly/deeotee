@@ -1,0 +1,11 @@
+#!/bin/bash
+# Lock screen then suspend
+
+# Lock immediately
+swaylock -f -c 000000 &
+
+# Wait for lock to engage
+sleep 1
+
+# Suspend
+systemctl suspend

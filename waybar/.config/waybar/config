@@ -3,7 +3,7 @@
     "position": "top",
     "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode", "cpu", "memory"],
-    "modules-center": ["clock"],
+    "modules-center": ["clock", "custom/bluelight"],
     "modules-right": ["pulseaudio", "battery", "custom/vpn", "network", "tray"],
     
     "sway/workspaces": {
@@ -26,6 +26,13 @@
         "format-charging": "⚡ {capacity}%",
         "format-plugged": "🔌 {capacity}%",
         "format-icons": ["", "", "", "", ""]
+    },
+
+    "custom/bluelight": {
+    "exec": "pgrep -x gammastep > /dev/null && echo '🌙' || echo '☀️'",
+    "format": "{}",
+    "interval": 2,
+    "on-click": "pkill gammastep || gammastep -l 32.7:-117.2 -t 6500:3500 -m wayland &"
     },
     
     "network": {
