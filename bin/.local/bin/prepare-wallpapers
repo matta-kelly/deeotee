@@ -1,13 +1,13 @@
 #!/bin/bash
 # Prepare wallpapers for different resolutions
 
-SOURCE="$HOME/Pictures/wallpaper.jpg"
-DEST_DIR="$HOME/Pictures"
+SOURCE="$HOME/Pictures/wallpaper/wallpaper.jpg"
+DEST_DIR="$HOME/Pictures/wallpaper"
 
 # Check if source exists
 if [ ! -f "$SOURCE" ]; then
     echo "Error: $SOURCE not found"
-    echo "Place your wallpaper at ~/Pictures/wallpaper.jpg first"
+    echo "Place your wallpaper at ~/Pictures/wallpaper/wallpaper.jpg first"
     exit 1
 fi
 
@@ -28,7 +28,7 @@ convert "$SOURCE" \
     -gravity center \
     -extent 1920x1080 \
     -quality 95 \
-    "$DEST_DIR/wall-1080.jpg"
-echo "✓ Created wall-1080.jpg (externals)"
+    "$DEST_DIR/wall-1080.jpg" 
+echo "✓ Created wall-1080.jpg (externals)" 
 
-echo "Done! Reload Sway with Mod+Shift+C"
+echo "Done! Reload Sway with Mod+Shift+C"  

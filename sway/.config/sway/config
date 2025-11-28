@@ -36,9 +36,9 @@ exec /usr/lib/xdg-desktop-portal-wlr
 
 ### Output configuration
 output * {
-    bg ~/Pictures/wall-1080.jpg fill
+    bg ~/Pictures/wallpaper/wall-1080.jpg fill
 }
-output "Lenovo Group Limited 0x403D Unknown" bg ~/Pictures/wall-1200.jpg fill
+output "Lenovo Group Limited 0x403D Unknown" bg ~/Pictures/wallpaper/wall-1200.jpg fill
 
 #
 # Example configuration:
@@ -236,9 +236,8 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     
     # Screenshots
-    bindsym Shift+Print exec grim
-    bindsym Print exec grim -g "$(slurp)" - | tee ~/Pictures/screenshot-$(date +'%Y%m%d-%H%M%S').png | wl-copy -t image/png && notify-send "Screenshot copied"
-
+    bindsym Shift+Print exec grim $HOME/Pictures/screenshot/screenshot-$(date +'%Y%m%d-%H%M%S').png
+    bindsym Print exec bash -c 'grim -g "$(slurp)" - | tee ~/Pictures/screenshot/screenshot-$(date +%Y%m%d-%H%M%S).png | wl-copy -t image/png && notify-send "Screenshot copied"'
 
 #
 # Power:
