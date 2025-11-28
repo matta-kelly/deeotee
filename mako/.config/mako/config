@@ -1,0 +1,33 @@
+# ~/.config/mako/config
+
+# Appearance
+font=monospace 11
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+border-radius=8
+border-size=2
+padding=12
+margin=10
+
+# Positioning
+anchor=top-right
+width=350
+max-visible=5
+
+# Behavior
+default-timeout=5000
+sort=-time
+
+# Urgency levels
+[urgency=low]
+border-color=#a6adc8
+default-timeout=5000
+
+[urgency=normal]
+border-color=#89b4fa
+default-timeout=5000
+
+[urgency=critical]
+border-color=#f38ba8
+default-timeout=10000

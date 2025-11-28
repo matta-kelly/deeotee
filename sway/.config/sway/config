@@ -236,8 +236,8 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     
     # Screenshots
-    bindsym Shift+Print exec grim $HOME/Pictures/screenshot/screenshot-$(date +'%Y%m%d-%H%M%S').png
-    bindsym Print exec bash -c 'grim -g "$(slurp)" - | tee ~/Pictures/screenshot/screenshot-$(date +%Y%m%d-%H%M%S).png | wl-copy -t image/png && notify-send "Screenshot copied"'
+    bindsym Shift+Print exec grim $HOME/Pictures/screenshot/screenshot-$(date +'%Y%m%d-%H%M%S').png && notify-send -u normal "Screenshot saved"
+    bindsym Print exec bash -c 'grim -g "$(slurp)" - | tee ~/Pictures/screenshot/screenshot-$(date +%Y%m%d-%H%M%S).png | wl-copy -t image/png && notify-send -u normal "Screenshot copied"'
 
 #
 # Power:
