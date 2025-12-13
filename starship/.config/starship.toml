@@ -19,7 +19,7 @@ show_always = true
 # Hostname
 [hostname]
 ssh_only = false
-format = "[$hostname](bold yellow)"
+format = "[$hostname](bold purple)"
 
 # Directory
 [directory]

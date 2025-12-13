@@ -1,7 +1,7 @@
 #!/bin/bash
 # Power menu using rofi
 
-choice=$(echo -e "🔒 Lock\n💤 Sleep\n⏻ Shutdown\n🔄 Reboot" | rofi -dmenu -p "Power")
+choice=$(echo -e "🔒 Lock\n💤 Sleep\n♻️ Reboot\n⛔ Shutdown" | rofi -dmenu -p "Power" -theme-str 'window {width: 250px;} listview {lines: 4; scrollbar: false;} inputbar {children: [prompt]; text-color: @foreground;} prompt {horizontal-align: 0.5;}')
 
 case "$choice" in
     "🔒 Lock")
@@ -12,10 +12,10 @@ case "$choice" in
         sleep 1
         systemctl suspend
         ;;
-    "⏻ Shutdown")
-        systemctl poweroff
-        ;;
-    "🔄 Reboot")
+    "♻️ Reboot")
         systemctl reboot
+        ;;
+    "⛔ Shutdown")
+        systemctl poweroff
         ;;
 esac

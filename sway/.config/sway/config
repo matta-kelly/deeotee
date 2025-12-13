@@ -14,8 +14,13 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term kitty
+
+
 # Your preferred application launcher
 set $menu rofi -show drun
+
+# ROFI binds
+bindsym $mod+c exec cliphist list | rofi -dmenu -p "Clipboard" | cliphist decode | wl-copy
 
 #Kanshi Display Manager
 exec kanshi
@@ -30,6 +35,10 @@ exec gammastep -l 32.7:-117.2 -t 6500:3500 -m wayland
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec /usr/lib/xdg-desktop-portal-wlr
+
+# Clipboard Management
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
 
 # Volume/Brightness OSD
 #exec swayosd-server

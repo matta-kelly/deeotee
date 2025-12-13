@@ -66,3 +66,11 @@ alias unlock-usb='sudo mount /dev/sda1 /mnt/usb && sudo gocryptfs /mnt/usb/backu
 
 # Lock Encrypted usb0
 alias lock-usb='sudo umount /mnt/usb/backup_plain && sudo umount /mnt/usb'
+eval "$(direnv hook bash)"
+eval "$(direnv hook bash)"
+
+#----------# TAILSCALE SHORTCUTS #----------#
+alias ts-status='tailscale status'
+alias ts-up='sudo tailscale up --login-server https://headscale.datamountainsolutions.com'
+alias ts-down='sudo tailscale down'
+alias ts-ip='tailscale ip'
