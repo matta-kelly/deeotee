@@ -2,75 +2,80 @@
     "layer": "top",
     "position": "top",
     "height": 30,
-    "modules-left": ["sway/workspaces", "sway/mode", "cpu", "memory"],
+    "modules-left": ["sway/workspaces", "sway/mode", "cpu", "memory", "custom/vpn"],
     "modules-center": ["clock", "custom/bluelight"],
-    "modules-right": ["custom/bluetooth","pulseaudio", "battery", "custom/vpn", "network", "tray"],
-    
+    "modules-right": ["custom/bluetooth", "pulseaudio", "battery",  "network", "tray"],
+
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
         "format": "{name}"
     },
-    
+
     "clock": {
         "format": "{:%H:%M   %Y-%m-%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
-    
+
     "battery": {
         "states": {
             "warning": 30,
             "critical": 15
         },
-        "format": "BAT {capacity}%",
-        "format-charging": "⚡ {capacity}%",
-        "format-plugged": "🔌 {capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
     "custom/bluelight": {
-    "exec": "pgrep -x gammastep > /dev/null && echo '🌙' || echo '☀️'",
-    "format": "{}",
-    "interval": 2,
-    "on-click": "pkill gammastep || gammastep -l 32.7:-117.2 -t 6500:3500 -m wayland &"
+        "exec": "pgrep -x gammastep > /dev/null && echo '🌙' || echo '☀️'",
+        "format": "{}",
+        "interval": 2,
+        "on-click": "pkill gammastep || gammastep -l 32.7:-117.2 -t 6500:3500 -m wayland &"
     },
     
     "network": {
-        "format-wifi": " {essid}",
-        "format-disconnected": "⚠ Disconnected"
+        "format-wifi": "󰤨 {essid}",
+        "format-disconnected": "󰤭 Disconnected"
     },
-    
+
     "pulseaudio": {
-        "format": "VOL {volume}%",
-        "format-muted": "🔇 Muted",
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
         "format-icons": {
-            "default": ["", "", ""]
+            "default": ["󰕿", "󰖀", "󰕾"]
         },
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
 
     "custom/bluetooth": {
-        "exec": "device=$(bluetoothctl info 2>/dev/null | grep 'Name:' | cut -d' ' -f2-); if [ -n \"$device\" ]; then echo \"BT $device\"; else echo \"BT\"; fi",
-        "interval": 5,
+        "exec": "power=$(bluetoothctl show 2>/dev/null | grep 'Powered:' | awk '{print $2}'); if [ \"$power\" = \"yes\" ]; then device=$(bluetoothctl info 2>/dev/null | grep 'Name:' | cut -d' ' -f2-); if [ -n \"$device\" ]; then echo '{\"text\": \"󰂱 '\"$device\"'\", \"class\": \"connected\"}'; else echo '{\"text\": \"󰂯\", \"class\": \"on\"}'; fi; else echo '{\"text\": \"󰂲\", \"class\": \"off\"}'; fi",
+        "return-type": "json",
+        "interval": 2,
         "on-click": "blueman-manager",
         "tooltip": false
     },
-    
     "cpu": {
-        "format": "CPU {usage}%",
+        "format": "󰍛 {usage}%",
         "tooltip": true,
         "interval": 2
     },
-    
+
     "memory": {
-        "format": "MEM {percentage}%",
+        "format": "󰘚 {percentage}%",
         "tooltip-format": "Used: {used:0.1f}G / {total:0.1f}G",
         "interval": 2
     },
-    
+
     "custom/vpn": {
         "exec": "~/.config/waybar/scripts/vpn-status.sh",
         "format": "{}",
         "interval": 5
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
     }
 }

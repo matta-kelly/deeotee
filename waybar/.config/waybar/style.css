@@ -1,5 +1,5 @@
 * {
-    font-family: "JetBrains Mono", "Fira Code", "SF Mono", "Cascadia Code", monospace;
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", "Fira Code", "SF Mono", "Cascadia Code", monospace;
     font-size: 13px;
     font-weight: 500;
 }
@@ -27,7 +27,16 @@ window#waybar {
     background-color: #313244;
 }
 
-#clock, #battery, #network, #pulseaudio, #cpu, #memory, #custom-vpn {
+#clock,
+#battery,
+#network,
+#pulseaudio,
+#cpu,
+#memory,
+#custom-vpn,
+#custom-bluetooth,
+#custom-bluelight,
+#tray {
     padding: 0 16px;
     font-weight: 500;
 }
@@ -62,6 +71,10 @@ window#waybar {
     color: #f38ba8;
 }
 
+#network {
+    color: #94e2d5;
+}
+
 #network.disconnected {
     color: #f38ba8;
 }
@@ -83,6 +96,25 @@ window#waybar {
 }
 
 #custom-bluetooth {
-    padding: 0 16px;
     color: #89b4fa;
+}
+
+#custom-bluetooth.off {
+    color: #6c7086;
+}
+
+#custom-bluetooth.on {
+    color: #89b4fa;
+}
+
+#custom-bluetooth.connected {
+    color: #a6e3a1;
+}
+
+#custom-bluelight {
+    color: #f9e2af;
+}
+
+#tray {
+    padding: 0 8px;
 }
