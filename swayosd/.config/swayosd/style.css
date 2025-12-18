@@ -1,0 +1,31 @@
+window {
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    background: transparent;
+}
+
+#container {
+    background-color: #1e1e2e;
+    border-radius: 8px;
+    border: 2px solid #89b4fa;
+    padding: 12px 20px;
+}
+
+image {
+    color: #cdd6f4;
+}
+
+progressbar {
+    min-height: 8px;
+}
+
+progressbar trough {
+    background-color: #313244;
+    border-radius: 4px;
+}
+
+progressbar progress {
+    background-color: #89b4fa;
+    border-radius: 4px;
+}

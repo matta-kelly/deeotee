@@ -44,7 +44,7 @@ exec wl-paste --type image --watch cliphist store
 #exec blueman-applet
 
 # Volume/Brightness OSD
-#exec swayosd-server
+exec swayosd-server
 
 ### Output configuration
 output * {
@@ -238,16 +238,15 @@ bindsym $mod+r mode "resize"
 # Utilities:
 #
     # Volume keys
-    bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send -h string:x-canonical-private-synchronous:volume "Mute toggled"
-    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send -h int:value:$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]+(?=%)' | head -1) -h string:x-canonical-private-synchronous:volume "Volume"
-    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send -h int:value:$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]+(?=%)' | head -1) -h string:x-canonical-private-synchronous:volume "Volume"
-    bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send -h string:x-canonical-private-synchronous:volume "Mic mute toggled"
-        
+    bindsym --locked XF86AudioMute exec swayosd-client --output-volume mute-toggle
+    bindsym --locked XF86AudioLowerVolume exec swayosd-client --output-volume lower
+    bindsym --locked XF86AudioRaiseVolume exec swayosd-client --output-volume raise
+    bindsym --locked XF86AudioMicMute exec swayosd-client --input-volume mute-toggle
+
     # Brightness keys
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- && notify-send -h int:value:$(brightnessctl -m | cut -d',' -f4 | tr -d '%') -h string:x-canonical-private-synchronous:brightness "Brightness"
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ && notify-send -h int:value:$(brightnessctl -m | cut -d',' -f4 | tr -d '%') -h string:x-canonical-private-synchronous:brightness "Brightness"
-        
-    # Screenshots
+    bindsym --locked XF86MonBrightnessDown exec swayosd-client --brightness lower
+    bindsym --locked XF86MonBrightnessUp exec swayosd-client --brightness raise
+        # Screenshots
     bindsym Shift+Print exec grim $HOME/Pictures/screenshot/screenshot-$(date +'%Y%m%d-%H%M%S').png && notify-send -u normal "Screenshot saved"
     bindsym Print exec bash -c 'grim -g "$(slurp)" - | tee ~/Pictures/screenshot/screenshot-$(date +%Y%m%d-%H%M%S).png | wl-copy -t image/png && notify-send -u normal "Screenshot copied"'
 
