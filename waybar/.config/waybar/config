@@ -4,7 +4,7 @@
     "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode", "cpu", "memory"],
     "modules-center": ["clock", "custom/bluelight"],
-    "modules-right": ["pulseaudio", "battery", "custom/vpn", "network", "tray"],
+    "modules-right": ["custom/bluetooth","pulseaudio", "battery", "custom/vpn", "network", "tray"],
     
     "sway/workspaces": {
         "disable-scroll": true,
@@ -47,6 +47,13 @@
             "default": ["", "", ""]
         },
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+
+    "custom/bluetooth": {
+        "exec": "device=$(bluetoothctl info 2>/dev/null | grep 'Name:' | cut -d' ' -f2-); if [ -n \"$device\" ]; then echo \"BT $device\"; else echo \"BT\"; fi",
+        "interval": 5,
+        "on-click": "blueman-manager",
+        "tooltip": false
     },
     
     "cpu": {

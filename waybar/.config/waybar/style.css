@@ -81,3 +81,8 @@ window#waybar {
 #custom-vpn.disconnected {
     color: #6c7086;
 }
+
+#custom-bluetooth {
+    padding: 0 16px;
+    color: #89b4fa;
+}

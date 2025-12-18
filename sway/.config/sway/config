@@ -40,6 +40,9 @@ exec /usr/lib/xdg-desktop-portal-wlr
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 
+# Bluetooth - commente dout for way config
+#exec blueman-applet
+
 # Volume/Brightness OSD
 #exec swayosd-server
 
