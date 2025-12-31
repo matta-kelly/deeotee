@@ -1,0 +1,25 @@
+# Credentials - NEVER commit
+.credentials.json
+
+# Session/debug data
+debug/
+history.jsonl
+session-env/
+shell-snapshots/
+statsig/
+todos/
+file-history/
+plans/
+downloads/
+
+# Project session data
+projects/
+
+# Cache
+stats-cache.json
+
+# Plugins (installed separately)
+plugins/
+
+# Image cache
+image-cache/
