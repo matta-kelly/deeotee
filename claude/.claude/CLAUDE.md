@@ -47,37 +47,23 @@ answer.
 This matters most for: download URLs, CLI flags, API endpoints,
 version numbers, and package names.
 
-## Standards (all repos)
+## Standards
 - No plaintext secrets in git. Use SOPS for files, ESO for k8s,
   chezmoi+Bitwarden for desktop.
 - Pin all versions. No :latest tags, no unpinned deps.
 - Conventional commits: type(scope): description
-- Work in small, testable increments.
-- Write idiomatic, simple, maintainable code. Always ask: is this
-  the most simple intuitive solution?
+- Simple over clever. Always ask: is this the most straightforward
+  solution? For infrastructure: boring and obvious wins.
 - Leave each repo better than you found it.
-- For infrastructure: boring and obvious beats clever.
-- Verify all work before calling it done.
-- When corrected, update tasks/lessons.md.
-- Fix errors autonomously — trace, don't ask.
-- 3-strike rule — three failures, switch approach.
+- Push to Forgejo, not GitHub — self-hosted git is the standard.
+- GitOps only — never mutate production directly.
+- After modifying repo structure, run `generate_structure` to
+  update `docs/structure.md`.
 - End non-trivial outputs with a confidence line:
   `Confidence: X/10 — [one-sentence rationale]`
-  Skip for routine tasks (file edits, simple lookups). Use for
-  architectural recommendations, root cause analysis, and anything
-  where you're reasoning under uncertainty.
-
-## Conventions
-- **Read before modifying** — Understand existing patterns first.
-- **No changes without consent** — Show diffs, get approval. Relaxed
-  during swarm ops when lead has delegated scope.
-- **Push to Forgejo, not GitHub** — Self-hosted git is the standard.
-- **GitOps only** — Never mutate production directly.
-- **Knowledge base** — `/home/mkultra/monkeybrain/thought-garden/` is the knowledge repo (Obsidian vault).
-  `Mkultra.md` is the dev system entry point. `taxonomy.md` defines the type system.
-  Read taxonomy.md before working with notes. Reference, don't duplicate.
-- **After modifying repo structure** — Run `generate_structure` to
-  update `docs/structure.md`.
+  Skip for routine tasks. Use for architectural recommendations,
+  root cause analysis, and anything where you're reasoning under
+  uncertainty.
 
 ## When starting work in any repo
 1. Read AGENTS.md — it routes you to everything repo-specific.
@@ -85,7 +71,9 @@ version numbers, and package names.
 3. Follow Knowledge Hub links to thought-garden for project context.
 4. Check for .claude/skills/ — use domain-specific patterns if they exist.
 
-For system-level understanding, start at `/home/mkultra/monkeybrain/thought-garden/Mkultra.md`.
+The knowledge base is `/home/mkultra/monkeybrain/thought-garden/` —
+an Obsidian vault. `Mkultra.md` is the dev system entry point.
+Read `taxonomy.md` before working with notes. Reference, don't duplicate.
 AGENTS.md takes precedence over this file for project-specific concerns.
 
 ## Platform context
