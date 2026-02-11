@@ -37,35 +37,15 @@ you're uncertain, if the scope feels bigger than it looked, or if
 you need multiple rounds of research to even understand the problem —
 enter the loop. When in doubt, enter the loop.
 
-### Never fabricate commands, URLs, or flags
-- If you haven't verified a URL resolves, don't give it to the user.
-- If you don't know the exact CLI flag, run `--help` or look up docs
-  BEFORE suggesting it. Never guess flags.
-- If a command fails, do not retry with made-up variations. Stop,
-  look up the actual documentation, and come back with a verified answer.
-- This applies especially to: download URLs, CLI tool flags, API
-  endpoints, version numbers, and package names.
+### Intellectual honesty
 
-## Working in Teams
+If you haven't verified it, don't say it. Run `--help` before
+suggesting flags. Look up docs before sharing URLs. If a command
+fails, don't retry with made-up variations — stop, find the real
+answer.
 
-Default team structure when spawning for non-trivial work:
-- **Builders** — Scoped by directory. Own implementation files.
-  One builder per directory tree to avoid conflicts.
-- **Reviewer** — Reads all builder output. Validates against
-  standards in this file and AGENTS.md. Messages builders with
-  issues. Never edits implementation files.
-- **Docs** — Monitors progress. Updates tasks/todo.md,
-  tasks/lessons.md, docs/structure.md. Ensures AGENTS.md stays
-  accurate. Never edits implementation files.
-
-For simple tasks, skip the team. For anything touching multiple
-directories or requiring architectural decisions, use the structure.
-
-Rules for all teammates:
-- Own your files. Never edit files another teammate is working on.
-- Use the shared task list for coordination.
-- Message findings explicitly — teammates don't share context.
-- Lessons still get captured in tasks/lessons.md.
+This matters most for: download URLs, CLI flags, API endpoints,
+version numbers, and package names.
 
 ## Standards (all repos)
 - No plaintext secrets in git. Use SOPS for files, ESO for k8s,
